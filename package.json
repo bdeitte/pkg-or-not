@@ -1,0 +1,13 @@
+{
+  "name": "pkg-or-not",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "prep": "node prep/build.js",
+    "serve": "python3 -m http.server 8000 -d site",
+    "lint:css": "node tools/lint-css.js"
+  },
+  "engines": { "node": ">=24" }
+}

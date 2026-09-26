@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Package or Not?</title>
+  <meta name="description" content="Real package, or something we made up? A guessing game across CRAN, Bioconductor, PyPI, OpenVSX, npm, crates.io and RubyGems.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="js/ui.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1><a id="home" href="./" title="Back to ecosystem picker">Package or Not?</a></h1>
+      <p class="tagline">Real package, or something we made up?</p>
+    </header>
+
+    <section id="pick">
+      <p id="pick-error" class="error" role="alert" hidden></p>
+      <h2>Pick an ecosystem</h2>
+      <div id="eco-list" class="eco-list"></div>
+    </section>
+
+    <section id="loading" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Loading package names...</p>
+    </section>
+
+    <section id="play" hidden>
+      <div class="play-top">
+        <span id="badge" class="badge"></span>
+        <span id="counter" class="counter"></span>
+      </div>
+      <p id="name" class="pkg-name"></p>
+      <div class="answer-buttons">
+        <button id="btn-real" class="answer real">Real <kbd>R</kbd></button>
+        <button id="btn-fake" class="answer fake">Fake <kbd>F</kbd></button>
+      </div>
+      <div id="reveal" class="reveal" hidden aria-live="polite">
+        <p id="verdict" class="verdict"></p>
+        <p id="detail" class="detail"></p>
+        <a id="detail-link" class="detail-link" target="_blank" rel="noopener" hidden></a>
+        <button id="btn-next" class="next"><span class="label">Next</span> <kbd>N</kbd></button>
+      </div>
+    </section>
+
+    <section id="results" hidden>
+      <p id="shared-note" class="shared-note" hidden>Someone shared these results with you.</p>
+      <p class="final-score"><span id="final-score"></span><span class="out-of">/10</span></p>
+      <p id="saying" class="saying"></p>
+      <ol id="summary" class="summary"></ol>
+      <div class="result-buttons">
+        <button id="btn-again"><span class="label">Play again</span> <kbd>P</kbd></button>
+        <button id="btn-share" class="secondary"><span class="label">Copy URL to results</span> <kbd>C</kbd></button>
+        <button id="btn-pick" class="secondary">Pick another ecosystem <kbd>E</kbd></button>
+      </div>
+      <p id="share-status" class="share-status" role="status"></p>
+      <input id="share-url" class="share-url" type="text" readonly aria-label="Link to these results" hidden>
+    </section>
+  </main>
+  <footer>
+    CRAN, Bioconductor, PyPI and OpenVSX names come from <a href="https://p3m.dev">p3m.dev</a>.<br>
+    Other names come from npm, crates.io and RubyGems.<br>
+    Made by <a href="https://deitte.com">Brian Deitte</a>.
+  </footer>
+</body>
+</html>

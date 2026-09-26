@@ -1,0 +1,7 @@
+node_modules/
+site/data/*.tmp/
+.DS_Store
+
+# Lighthouse output
+/lh*.json
+/*.report.html
