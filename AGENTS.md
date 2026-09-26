@@ -14,7 +14,7 @@ Fake names are generated in the browser from a character-level Markov model trai
 - No npm dependencies anywhere, and no build step. Do not add a `node_modules`, bundler, or framework. The one exception is `tools/lint-css.js`, which installs ESLint into a cache folder outside the repo (`~/.cache/pkg-or-not-lint`), never into the repo.
 - CRAN, Bioconductor, PyPI and OpenVSX names come from p3m.dev. p3m.dev sends no CORS headers, so the browser can never call it. All p3m data is fetched ahead of time by the prep script.
 - Never put the user's email or other personal data in requests. Contact info in the User-Agent comes only from the optional `PKG_OR_NOT_CONTACT` environment variable.
-- Values fixed by the spec (keep them unless the spec changes): 10 rounds, 3 to 7 fakes per game, 50 rejected candidates before a round falls back to a real name, 5 percent Bloom false positive rate, 3 second npm live-check timeout in the browser, Bioconductor 3.23 by default, score bands 0-3 / 4-6 / 7-9 / 10.
+- Fixed game values (change them only when asked): 10 rounds, 3 to 7 fakes per game, 50 rejected candidates before a round falls back to a real name, 5 percent Bloom false positive rate, 3 second npm live-check timeout in the browser, Bioconductor 3.23 by default, score bands 0-3 / 4-6 / 7-9 / 10.
 
 ## Layout
 
