@@ -8,10 +8,6 @@ Guidance for AI coding agents working in this repository.
 
 Fake names are generated in the browser from a character-level Markov model trained on real names. Names that actually exist are rejected with an exact name list, a Bloom filter, or (npm only) a live registry check.
 
-Design and plan:
-- Spec: `docs/superpowers/specs/2026-09-26-pkg-or-not-design.md`
-- Plan: `docs/superpowers/plans/2026-09-26-pkg-or-not.md`
-
 ## Hard constraints
 
 - No backend. The site is static files plus browser-only JavaScript.
