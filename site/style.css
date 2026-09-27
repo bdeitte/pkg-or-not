@@ -45,7 +45,6 @@ main {
   max-width: 640px;
   margin: 0 auto;
   padding: 24px 16px;
-  flex: 1;
 }
 
 header { text-align: center; margin-bottom: 24px; }
@@ -133,5 +132,6 @@ kbd { font-family: var(--mono); font-size: 12px; opacity: 0.8; border: 1px solid
 .share-status { text-align: center; color: var(--muted); font-size: 14px; min-height: 1.4em; margin: 8px 0 0; }
 .share-url:not([hidden]) { display: block; width: 100%; box-sizing: border-box; font-family: var(--mono); font-size: 13px; padding: 8px; }
 
-footer { text-align: center; color: var(--muted); font-size: 13px; padding: 16px; }
+/* 39px + main's 24px bottom padding matches the tagline-to-cards gap on the picker. */
+footer { text-align: center; color: var(--muted); font-size: 13px; padding: 39px 16px 16px; }
 footer a { color: inherit; }
