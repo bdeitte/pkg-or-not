@@ -42,7 +42,10 @@ site/                 the deployable static site
                       or fakes-verified.json (npm)
 test/                 node:test suites
 tools/lint-css.js     CSS Baseline check (ESLint installed outside the repo)
+wrangler.jsonc        Cloudflare Workers static assets config (serves site/)
 ```
+
+Deployment: https://packageornot.com is a Cloudflare Worker with static assets. Workers Builds deploys every push to `main`, so anything committed under `site/` goes live. The Worker name in the Cloudflare dashboard must match `name` in `wrangler.jsonc`.
 
 Ecosystem ids used everywhere: `cran`, `bioc`, `pypi`, `openvsx`, `npm`, `crates`, `rubygems`, plus `mixed` for the Mixed bag option.
 

@@ -1,0 +1,8 @@
+// Cloudflare Workers static assets: serves site/ as-is. Deployed by Workers Builds on push to main.
+{
+  "name": "pkg-or-not",
+  "compatibility_date": "2026-09-26",
+  "assets": {
+    "directory": "./site"
+  }
+}

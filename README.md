@@ -38,3 +38,7 @@ node prep/preview.js pypi       # print sample fakes and reals
 ```
 
 A full build crawls several registries and takes over an hour (crates.io is the slowest). Set `PKG_OR_NOT_CONTACT` to add contact info to the User-Agent.
+
+## Deploy
+
+The site runs at https://packageornot.com on Cloudflare Workers static assets. `wrangler.jsonc` points Cloudflare at `site/`. Every push to `main` deploys through Workers Builds, which runs `npx wrangler deploy` on Cloudflare's side. Nothing is installed in the repo.
