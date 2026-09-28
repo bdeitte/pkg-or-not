@@ -42,6 +42,7 @@ site/                 the deployable static site
                       or fakes-verified.json (npm)
 test/                 node:test suites
 tools/lint-css.js     CSS Baseline check (ESLint installed outside the repo)
+tools/serve.js        local static server for site/ (node:http, used by npm run serve)
 wrangler.jsonc        Cloudflare Workers static assets config (serves site/)
 ```
 

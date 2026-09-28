@@ -14,7 +14,7 @@ npm run serve
 
 Open http://localhost:8000.
 
-Needs Node 24 or newer, and python3 for the local server.
+Needs Node 24 or newer.
 
 Keys: 1 to 8 pick an ecosystem. R or Left arrow for Real, F or Right arrow for Fake, N for the next name. On the results screen: P to play again, C to copy a link to your results, E to pick another ecosystem.
 

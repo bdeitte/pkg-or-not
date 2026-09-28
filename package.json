@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node --test",
     "prep": "node prep/build.js",
-    "serve": "python3 -m http.server 8000 -d site",
+    "serve": "node tools/serve.js",
     "lint:css": "node tools/lint-css.js"
   },
   "engines": { "node": ">=24" }
