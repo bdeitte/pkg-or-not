@@ -5,6 +5,7 @@ import { loadEcosystem } from './data.js';
 import { ROUNDS, planFakes, buildRounds, createSourcePicker, score, isCorrect } from './game.js';
 import { pickSayingIndex, sayingAt, pickFakeCaught, pickFakeMissed } from './sayings.js';
 import { encodeResults, decodeResults } from './share.js';
+import { confettiFor, launchConfetti, stopConfetti } from './confetti.js';
 
 const $ = (sel) => document.querySelector(sel);
 const SCREENS = ['pick', 'loading', 'play', 'results'];
@@ -15,6 +16,7 @@ let gameId = 0; // bumped on every start or reset so a stale load can't take ove
 
 function show(screen) {
   for (const s of SCREENS) $(`#${s}`).hidden = s !== screen;
+  if (screen !== 'results') stopConfetti();
 }
 
 const PICKER_IDS = [...ECOSYSTEM_IDS, 'mixed'];
@@ -163,6 +165,7 @@ function renderResults() {
   }
   show('results');
   $('#btn-again').focus();
+  launchConfetti(confettiFor(s));
 }
 
 async function copyShareUrl() {

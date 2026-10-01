@@ -135,3 +135,5 @@ kbd { font-family: var(--mono); font-size: 12px; opacity: 0.8; border: 1px solid
 /* 39px + main's 24px bottom padding matches the tagline-to-cards gap on the picker. */
 footer { text-align: center; color: var(--muted); font-size: 13px; padding: 39px 16px 16px; }
 footer a { color: inherit; }
+
+.confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
