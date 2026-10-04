@@ -19,7 +19,17 @@
     <section id="pick">
       <p id="pick-error" class="error" role="alert" hidden></p>
       <h2>Pick an ecosystem</h2>
-      <div id="eco-list" class="eco-list"></div>
+      <!-- Cards are in the HTML (not built by JS) so the footer does not shift on load. test/ecosystems.test.js keeps them in sync with ecosystems.js. -->
+      <div id="eco-list" class="eco-list">
+        <button class="eco-card" data-eco="cran"><span class="eco-label">CRAN <kbd>1</kbd></span><span class="eco-teaser">R packages, with capital letters in surprising places.</span></button>
+        <button class="eco-card" data-eco="bioc"><span class="eco-label">Bioconductor <kbd>2</kbd></span><span class="eco-teaser">Genomics tools with names only a biologist could love.</span></button>
+        <button class="eco-card" data-eco="pypi"><span class="eco-label">PyPI <kbd>3</kbd></span><span class="eco-teaser">Nearly a million Python packages. Somebody took every name.</span></button>
+        <button class="eco-card" data-eco="openvsx"><span class="eco-label">OpenVSX <kbd>4</kbd></span><span class="eco-teaser">Editor extensions for VS Code and friends, named by marketing.</span></button>
+        <button class="eco-card" data-eco="npm"><span class="eco-label">npm <kbd>5</kbd></span><span class="eco-teaser">Millions of JavaScript packages, several of which pad strings.</span></button>
+        <button class="eco-card" data-eco="crates"><span class="eco-label">crates.io <kbd>6</kbd></span><span class="eco-teaser">Rust crates with blazingly fast, memory-safe names.</span></button>
+        <button class="eco-card" data-eco="rubygems"><span class="eco-label">RubyGems <kbd>7</kbd></span><span class="eco-teaser">Ruby gems, where every name is a pun.</span></button>
+        <button class="eco-card" data-eco="mixed"><span class="eco-label">Mixed bag <kbd>8</kbd></span><span class="eco-teaser">A bit of everything. Good luck.</span></button>
+      </div>
     </section>
 
     <section id="loading" hidden>

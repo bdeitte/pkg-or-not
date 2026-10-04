@@ -46,3 +46,13 @@ test('every committed real package url starts with its ecosystem urlPrefix', () 
   }
   assert.equal(ECOSYSTEMS.mixed.urlPrefix, null);
 });
+
+test('index.html has a picker card per ecosystem plus mixed, matching ecosystems.js', () => {
+  const html = readFileSync(new URL('../site/index.html', import.meta.url), 'utf8');
+  const cardRe = /<button class="eco-card" data-eco="([^"]+)"><span class="eco-label">([^<]+) <kbd>(\d)<\/kbd><\/span><span class="eco-teaser">([^<]+)<\/span><\/button>/g;
+  const cards = [...html.matchAll(cardRe)].map(([, id, label, key, teaser]) => ({ id, label, key, teaser }));
+  const expected = [...ECOSYSTEM_IDS, 'mixed'].map((id, i) => ({
+    id, label: ECOSYSTEMS[id].label, key: String(i + 1), teaser: ECOSYSTEMS[id].teaser,
+  }));
+  assert.deepEqual(cards, expected);
+});

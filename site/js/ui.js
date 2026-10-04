@@ -21,24 +21,10 @@ function show(screen) {
 
 const PICKER_IDS = [...ECOSYSTEM_IDS, 'mixed'];
 
-function renderPicker() {
-  const list = $('#eco-list');
-  list.replaceChildren();
-  for (const [i, id] of PICKER_IDS.entries()) {
-    const btn = document.createElement('button');
-    btn.className = 'eco-card';
-    const label = document.createElement('span');
-    label.className = 'eco-label';
-    label.textContent = ECOSYSTEMS[id].label;
-    const kbd = document.createElement('kbd');
-    kbd.textContent = String(i + 1);
-    label.append(' ', kbd);
-    const teaser = document.createElement('span');
-    teaser.className = 'eco-teaser';
-    teaser.textContent = ECOSYSTEMS[id].teaser;
-    btn.append(label, teaser);
-    btn.addEventListener('click', () => startGame(id));
-    list.append(btn);
+// The cards are static markup in index.html; this only wires them up.
+function bindPicker() {
+  for (const btn of document.querySelectorAll('#eco-list .eco-card')) {
+    btn.addEventListener('click', () => startGame(btn.dataset.eco));
   }
 }
 
@@ -255,6 +241,6 @@ $('#home').addEventListener('click', (e) => {
   goHome();
 });
 
-renderPicker();
+bindPicker();
 show('pick');
 showFromHash();
