@@ -126,7 +126,7 @@ kbd { font-family: var(--mono); font-size: 12px; opacity: 0.8; border: 1px solid
 .summary .right { color: var(--real); }
 .summary .wrong { color: var(--fake); }
 .summary .meta { color: var(--muted); font-size: 14px; }
-.result-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 24px; }
+.result-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
 #btn-again { background: var(--accent); color: #fff; border: none; font-weight: 700; }
 .shared-note { text-align: center; color: var(--muted); margin: 0 0 8px; }
 .share-status { text-align: center; color: var(--muted); font-size: 14px; min-height: 1.4em; margin: 8px 0 0; }

@@ -150,7 +150,7 @@ function renderResults() {
     list.append(li);
   }
   show('results');
-  // The buttons sit below the summary, so focusing them would scroll past the score.
+  // Start at the score even if the previous screen was scrolled.
   window.scrollTo(0, 0);
   $('#btn-again').focus({ preventScroll: true });
   launchConfetti(confettiFor(s));
