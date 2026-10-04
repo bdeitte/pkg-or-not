@@ -116,10 +116,10 @@ kbd { font-family: var(--mono); font-size: 12px; opacity: 0.8; border: 1px solid
 .detail-link[hidden] { display: none; }
 .next { display: block; width: 100%; font-weight: 700; }
 
-.final-score { text-align: center; font-size: 72px; font-weight: 800; margin: 8px 0 0; font-variant-numeric: tabular-nums; }
+.final-score { text-align: center; font-size: 72px; line-height: 1; font-weight: 800; margin: 8px 0 0; font-variant-numeric: tabular-nums; }
 .out-of { font-size: 32px; color: var(--muted); }
-.saying { text-align: center; font-size: 20px; margin: 8px 0 24px; }
-.summary { padding-left: 24px; }
+.saying { text-align: center; font-size: 20px; margin: 24px 0; }
+.summary { padding-left: 24px; margin-top: 0; }
 .summary li { margin-bottom: 8px; }
 .summary .name { font-family: var(--mono); overflow-wrap: anywhere; }
 .summary .mark { font-weight: 700; margin-right: 6px; }
@@ -129,8 +129,9 @@ kbd { font-family: var(--mono); font-size: 12px; opacity: 0.8; border: 1px solid
 .result-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
 #btn-again { background: var(--accent); color: #fff; border: none; font-weight: 700; }
 .shared-note { text-align: center; color: var(--muted); margin: 0 0 8px; }
-.share-status { text-align: center; color: var(--muted); font-size: 14px; min-height: 1.4em; margin: 8px 0 0; }
-.share-url:not([hidden]) { display: block; width: 100%; box-sizing: border-box; font-family: var(--mono); font-size: 13px; padding: 8px; }
+/* The status line is the 24px gap between the buttons and the summary, so showing text does not move anything. */
+.share-status { text-align: center; color: var(--muted); font-size: 14px; line-height: 24px; min-height: 24px; margin: 0; }
+.share-url:not([hidden]) { display: block; margin-bottom: 24px; width: 100%; box-sizing: border-box; font-family: var(--mono); font-size: 13px; padding: 8px; }
 
 /* 39px + main's 24px bottom padding matches the tagline-to-cards gap on the picker. */
 footer { text-align: center; color: var(--muted); font-size: 13px; padding: 39px 16px 16px; }
