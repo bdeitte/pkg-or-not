@@ -4,9 +4,9 @@ import { bandFor } from './game.js';
 
 const SETTINGS = {
   low: null,
-  mid: { count: 40, origins: ['center'] },
-  high: { count: 120, origins: ['center'] },
-  perfect: { count: 250, origins: ['left', 'right'] },
+  mid: { count: 70, origins: ['center'] },
+  high: { count: 180, origins: ['center'] },
+  perfect: { count: 320, origins: ['left', 'right'] },
 };
 
 // Burst settings for a score, or null for no confetti.
@@ -16,7 +16,7 @@ export function confettiFor(score) {
 
 // The launch speed decays quickly, then each piece drifts down at its own steady fall speed.
 // Speeds are in screen heights per frame, so the burst looks the same on any screen size.
-const DECAY = 0.92;
+export const DECAY = 0.92;
 const FRAME_MS = 1000 / 60;
 
 let current = null; // { canvas, frame, onResize }
@@ -35,22 +35,23 @@ function palette() {
   return [...vars, '#f5c400', '#e84393'];
 }
 
-// Angle (radians, 0 is straight up) and spread for each origin.
+// Angle (radians, 0 is straight up) and spread for each origin. Reach scales the sideways
+// speed, which is in screen widths, so a burst fans out across wide and narrow screens alike.
 const AIM = {
-  center: { x: 0.5, angle: 0, spread: 0.6 },
-  left: { x: 0, angle: 0.55, spread: 0.35 },
-  right: { x: 1, angle: -0.55, spread: 0.35 },
+  center: { x: 0.5, angle: 0, spread: 0.9, reach: 0.5 },
+  left: { x: 0, angle: 0.6, spread: 0.5, reach: 0.9 },
+  right: { x: 1, angle: -0.6, spread: 0.5, reach: 0.9 },
 };
 
-function makePiece(origin, colors, w, h) {
+export function makePiece(origin, colors, w, h) {
   const aim = AIM[origin];
   const angle = aim.angle + (Math.random() - 0.5) * 2 * aim.spread;
-  const speed = h * (0.055 + Math.random() * 0.03);
+  const speed = 0.075 + Math.random() * 0.035;
   return {
     x: aim.x * w,
     y: h,
-    vx: Math.sin(angle) * speed,
-    vy: -Math.cos(angle) * speed,
+    vx: Math.sin(angle) * speed * w * aim.reach,
+    vy: -Math.cos(angle) * speed * h,
     fall: h * (0.0025 + Math.random() * 0.0015),
     size: 6 + Math.random() * 6,
     round: Math.random() < 0.3,

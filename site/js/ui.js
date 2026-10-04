@@ -164,7 +164,9 @@ function renderResults() {
     list.append(li);
   }
   show('results');
-  $('#btn-again').focus();
+  // The buttons sit below the summary, so focusing them would scroll past the score.
+  window.scrollTo(0, 0);
+  $('#btn-again').focus({ preventScroll: true });
   launchConfetti(confettiFor(s));
 }
 
